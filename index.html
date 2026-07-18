@@ -4,14 +4,15 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>The Load Bearing Co.</title>
-  <meta name="description" content="Merch for people who notice the tics. Desk fuel. Joke-first." />
+  <meta name="description" content="The Load Bearing Co." />
   <meta name="theme-color" content="#0a0a0a" />
+  <meta name="robots" content="index,follow" />
   <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' fill='%230a0a0a'/%3E%3Cpath d='M6 22 V10 H10 V14 H14 V10 H18 V22 H14 V18 H10 V22 Z' fill='%23e8e4dc'/%3E%3C/svg%3E" />
   <style>
     :root {
       --bg: #0a0a0a;
       --fg: #e8e4dc;
-      --muted: #8a8680;
+      --muted: #7a7670;
       --line: #2a2826;
       --accent: #c4b5a0;
     }
@@ -26,14 +27,13 @@
       flex-direction: column;
       -webkit-font-smoothing: antialiased;
     }
-    /* subtle blueprint grid */
     body::before {
       content: "";
       position: fixed;
       inset: 0;
       background-image:
-        linear-gradient(rgba(196,181,160,0.04) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(196,181,160,0.04) 1px, transparent 1px);
+        linear-gradient(rgba(196,181,160,0.035) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(196,181,160,0.035) 1px, transparent 1px);
       background-size: 48px 48px;
       pointer-events: none;
       z-index: 0;
@@ -46,92 +46,66 @@
       flex-direction: column;
       justify-content: center;
       padding: clamp(1.5rem, 5vw, 3rem);
-      max-width: 42rem;
+      max-width: 36rem;
       margin: 0 auto;
       width: 100%;
     }
     .mark {
-      font-size: 0.7rem;
-      letter-spacing: 0.28em;
+      font-size: 0.68rem;
+      letter-spacing: 0.32em;
       text-transform: uppercase;
       color: var(--muted);
-      margin-bottom: 1.75rem;
+      margin-bottom: 1.5rem;
     }
     h1 {
-      font-size: clamp(1.75rem, 5vw, 2.35rem);
+      font-size: clamp(1.85rem, 5.5vw, 2.5rem);
       font-weight: 500;
-      letter-spacing: -0.02em;
-      line-height: 1.15;
-      margin-bottom: 1.25rem;
-    }
-    h1 span {
-      display: block;
-      color: var(--accent);
-      font-weight: 400;
+      letter-spacing: -0.03em;
+      line-height: 1.1;
+      margin-bottom: 1.5rem;
     }
     .rule {
-      width: 3rem;
+      width: 2.5rem;
       height: 1px;
       background: var(--line);
       margin: 0 0 1.5rem;
       border: 0;
     }
     p {
-      font-size: 0.95rem;
-      line-height: 1.65;
+      font-size: 0.92rem;
+      line-height: 1.7;
       color: var(--muted);
-      max-width: 34rem;
+      max-width: 28rem;
     }
-    p + p { margin-top: 1rem; }
-    .punch {
-      color: var(--fg);
-      margin-top: 1.75rem;
-      font-size: 1rem;
+    .status {
+      margin-top: 2rem;
+      font-size: 0.72rem;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--accent);
     }
     footer {
       position: relative;
       z-index: 1;
       padding: 1.25rem clamp(1.5rem, 5vw, 3rem) 1.75rem;
       border-top: 1px solid var(--line);
-      display: flex;
-      flex-wrap: wrap;
-      gap: 0.75rem 1.5rem;
-      justify-content: space-between;
-      align-items: center;
-      font-size: 0.7rem;
-      letter-spacing: 0.06em;
+      font-size: 0.68rem;
+      letter-spacing: 0.08em;
       color: var(--muted);
       text-transform: uppercase;
     }
-    footer a {
-      color: var(--muted);
-      text-decoration: none;
-      border-bottom: 1px solid transparent;
-    }
-    footer a:hover { color: var(--fg); border-bottom-color: var(--line); }
   </style>
 </head>
 <body>
   <main>
-    <p class="mark">Est. for people who notice</p>
-    <h1>
-      The Load Bearing Co.
-      <span>Desk fuel. Joke-first.</span>
-    </h1>
+    <p class="mark">Limited structural capacity</p>
+    <h1>The Load Bearing Co.</h1>
     <hr class="rule" />
-    <p>
-      Merch for builders who live in the tools and catch the verbal tics —
-      the lectures at 2&nbsp;a.m., the phrases that won’t quit, the ship-it energy.
-    </p>
-    <p>
-      Mugs. Desk mats. The occasional tee that earns its cotton.
-      Quality over margin. No generic “I&nbsp;❤️&nbsp;AI” sludge.
-    </p>
-    <p class="punch">Something’s load-bearing in the shop. We’re pouring the foundation.</p>
+    <p>Under construction. Check back.</p>
+    <p class="status">Foundation curing</p>
   </main>
   <footer>
     <span>theloadbearingco.com</span>
-    <span>Coming online · 2026</span>
   </footer>
 </body>
 </html>
