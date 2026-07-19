@@ -1,0 +1,56 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>The Load Bearing Co. — reference frames</title>
+  <meta name="robots" content="noindex,nofollow" />
+  <style>
+    :root { --ink:#121210; --oat:#f5f0e6; --bone:#e4d8c5; --rust:#c9633e; }
+    * { box-sizing: border-box; }
+    html { background: var(--ink); scroll-behavior: smooth; }
+    body { margin: 0; color: var(--oat); font-family: "Montserrat", Arial, sans-serif; }
+    header {
+      position: sticky;
+      z-index: 3;
+      top: 0;
+      display: flex;
+      justify-content: space-between;
+      gap: 1rem;
+      padding: 1rem clamp(1rem,3vw,3rem);
+      background: color-mix(in srgb, var(--ink) 88%, transparent);
+      border-bottom: 1px solid rgba(228,216,197,.24);
+      backdrop-filter: blur(16px);
+    }
+    header a { color: inherit; text-underline-offset: .35rem; }
+    header span, header a { font-size: .7rem; letter-spacing: .16em; text-transform: uppercase; }
+    main { width: min(100%, 120rem); margin: 0 auto; padding: clamp(2rem,4vw,5rem) clamp(1rem,3vw,3rem) 6rem; }
+    .intro { display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; margin-bottom: 4rem; }
+    h1 { max-width: 9ch; margin: 0; font-family: "Bebas Neue", Impact, sans-serif; font-size: clamp(4rem,9vw,10rem); font-weight: 400; line-height: .84; text-transform: uppercase; }
+    .intro p { align-self: end; max-width: 39rem; margin: 0; color: var(--bone); line-height: 1.7; }
+    figure { margin: 0 0 clamp(3rem,6vw,8rem); }
+    figcaption { display: flex; justify-content: space-between; gap: 1rem; margin-bottom: .85rem; color: var(--bone); font-size: .7rem; letter-spacing: .16em; text-transform: uppercase; }
+    figcaption b { color: var(--rust); }
+    img { display: block; width: 100%; height: auto; border: 1px solid rgba(228,216,197,.24); }
+    @media (max-width: 760px) { .intro { grid-template-columns: 1fr; } header span { display: none; } }
+  </style>
+</head>
+<body>
+  <header>
+    <span>The Load Bearing Co. / approval frames</span>
+    <a href="index.html">Open the native prototype ↗</a>
+  </header>
+  <main>
+    <div class="intro">
+      <h1>Six sections. Zero intel.</h1>
+      <p>These are the art-direction masters behind the native prototype. They deliberately expose no products, partners, dates, model names, methods, roadmap, team, or launch mechanics.</p>
+    </div>
+    <figure><figcaption><span><b>00</b> — Hero</span><span>Under load</span></figcaption><img src="assets/01-hero.webp" alt="Hero reference: an anonymous canvas-wrapped block under a rust tension strap." width="1672" height="941" /></figure>
+    <figure><figcaption><span><b>01</b> — Standard</span><span>Built to hold</span></figcaption><img src="assets/02-standard.webp" alt="Standard reference: anonymous materials held under pressure." width="1586" height="992" loading="lazy" /></figure>
+    <figure><figcaption><span><b>02</b> — Disclosure</span><span>Nothing to announce</span></figcaption><img src="assets/03-disclosure.webp" alt="Disclosure reference: oversized editorial typography on tactile charcoal." width="1672" height="941" loading="lazy" /></figure>
+    <figure><figcaption><span><b>03</b> — Manifest</span><span>Safe non-answers</span></figcaption><img src="assets/04-manifest.webp" alt="Manifest reference: three abstract material panels labeled form, weight, and timing." width="1672" height="941" loading="lazy" /></figure>
+    <figure><figcaption><span><b>04</b> — Promise</span><span>Show it when it holds</span></figcaption><img src="assets/05-promise.webp" alt="Promise reference: dark condensed type on a warm oat field." width="1915" height="821" loading="lazy" /></figure>
+    <figure><figcaption><span><b>05</b> — Exit</span><span>Check back later</span></figcaption><img src="assets/06-exit.webp" alt="Exit reference: oversized type over a dark industrial shadow." width="1672" height="941" loading="lazy" /></figure>
+  </main>
+</body>
+</html>
