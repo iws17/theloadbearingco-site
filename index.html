@@ -343,6 +343,171 @@
       color: var(--muted);
     }
 
+    .disclosure {
+      display: grid;
+      align-items: center;
+      background:
+        linear-gradient(90deg, transparent 0 48%, rgba(245,240,230,.035) 48% 48.15%, transparent 48.15%),
+        linear-gradient(0deg, transparent 0 32%, rgba(245,240,230,.025) 32% 32.15%, transparent 32.15%),
+        var(--ink);
+    }
+
+    .disclosure__rail {
+      position: absolute;
+      inset: 0 auto 0 0;
+      display: grid;
+      place-items: center;
+      width: clamp(2.5rem, 4.2vw, 4.5rem);
+      border-right: 1px solid var(--hairline);
+    }
+
+    .disclosure__rail span {
+      writing-mode: vertical-rl;
+      rotate: 180deg;
+      color: var(--bone);
+    }
+
+    .disclosure__content {
+      position: relative;
+      width: min(100%, var(--max));
+      margin-inline: auto;
+      padding: clamp(7rem, 12vw, 12rem) var(--page-pad) clamp(7rem, 12vw, 12rem) max(5rem, 8vw);
+    }
+
+    .disclosure .display {
+      max-width: 9ch;
+      margin-top: 2rem;
+      font-size: clamp(5.6rem, 12.7vw, 15rem);
+    }
+
+    .disclosure__punctuation {
+      position: absolute;
+      right: 5vw;
+      bottom: 4vw;
+      color: var(--bone);
+      font-family: var(--display);
+      font-size: clamp(10rem, 27vw, 31rem);
+      line-height: .6;
+      opacity: .08;
+      user-select: none;
+    }
+
+    .disclosure__sub {
+      margin: 2rem 0 0;
+      color: var(--bone);
+      font-size: clamp(.95rem, 1.1vw, 1.25rem);
+    }
+
+    .manifest {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      padding-block: clamp(5rem, 8vw, 9rem);
+      background: var(--ink);
+      border-block: 1px solid var(--hairline);
+    }
+
+    .manifest__head {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 1.4rem;
+      padding-bottom: 1.4rem;
+      border-bottom: 1px solid var(--hairline);
+    }
+
+    .manifest__head .index { margin: 0; }
+
+    .manifest__hint { color: var(--muted); }
+
+    .slices {
+      display: flex;
+      min-height: min(68vh, 49rem);
+      overflow: hidden;
+      border: 1px solid var(--hairline);
+    }
+
+    .slice {
+      position: relative;
+      flex: 1;
+      min-width: 0;
+      overflow: hidden;
+      color: var(--oat);
+      background-color: var(--charcoal);
+      background-size: cover;
+      transition: flex 620ms cubic-bezier(.2,.8,.2,1), filter 260ms ease;
+    }
+
+    .slice + .slice { border-left: 1px solid var(--bone); }
+
+    .slice::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background:
+        linear-gradient(180deg, rgba(12,12,10,.52), transparent 20%),
+        linear-gradient(0deg, rgba(12,12,10,.95) 0%, rgba(12,12,10,.2) 56%, rgba(12,12,10,.08));
+      transition: background 260ms ease;
+    }
+
+    .slice:hover,
+    .slice:focus-within { flex: 1.6; }
+
+    .slice:hover::before,
+    .slice:focus-within::before {
+      background:
+        linear-gradient(180deg, rgba(12,12,10,.46), transparent 20%),
+        linear-gradient(0deg, rgba(12,12,10,.92), rgba(12,12,10,.03) 70%);
+    }
+
+    .slice--form {
+      background-image: url("assets/standard-material.webp");
+      background-position: center;
+    }
+
+    .slice--weight {
+      background-image: url("assets/hero-object.webp");
+      background-position: center;
+    }
+
+    .slice--timing {
+      background-image:
+        linear-gradient(135deg, transparent 0 43%, rgba(18,18,16,.2) 43.2% 44%, transparent 44.2%),
+        linear-gradient(rgba(18,18,16,.13) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(18,18,16,.13) 1px, transparent 1px),
+        linear-gradient(145deg, #d8cdbb, #f5f0e6 58%, #b8aa95);
+      background-size: auto, 4.5rem 4.5rem, 4.5rem 4.5rem, auto;
+    }
+
+    .slice__copy {
+      position: absolute;
+      z-index: 1;
+      inset: auto clamp(1.2rem, 2vw, 2.5rem) clamp(1.5rem, 2.5vw, 3rem);
+    }
+
+    .slice__copy h3 {
+      margin: 0;
+      font-family: var(--display);
+      font-size: clamp(4.5rem, 8vw, 9rem);
+      font-weight: 400;
+      line-height: .8;
+      text-transform: uppercase;
+    }
+
+    .slice__copy p {
+      margin: 1.2rem 0 0;
+      color: var(--bone);
+    }
+
+    .slice__copy p::before {
+      content: "";
+      display: inline-block;
+      width: 1.4rem;
+      height: .2rem;
+      margin: 0 .8rem .2rem 0;
+      background: var(--rust);
+    }
+
     .promise {
       display: grid;
       align-items: center;
@@ -497,6 +662,17 @@
       .standard__copy { min-height: 68dvh; }
       .standard .display { font-size: clamp(5.5rem, 25vw, 9rem); }
 
+      .disclosure__content { padding-left: 4.5rem; }
+      .disclosure .display { font-size: clamp(5.2rem, 23vw, 9rem); }
+      .disclosure__punctuation { right: -1rem; opacity: .055; }
+
+      .manifest__head { align-items: flex-start; gap: 1rem; }
+      .manifest__hint { max-width: 11rem; text-align: right; line-height: 1.45; }
+      .slices { min-height: 120dvh; flex-direction: column; }
+      .slice + .slice { border-top: 1px solid var(--bone); border-left: 0; }
+      .slice:hover, .slice:focus-within { flex: 1.2; }
+      .slice__copy h3 { font-size: clamp(4.8rem, 22vw, 8rem); }
+
       .promise { min-height: 82dvh; }
       .promise .display { font-size: clamp(4.4rem, 20vw, 8rem); }
 
@@ -550,9 +726,50 @@
       </div>
     </section>
 
+    <section class="section disclosure" aria-labelledby="disclosure-title">
+      <aside class="disclosure__rail" aria-label="Private test status">
+        <span class="micro">The Load Bearing Co. / Private test</span>
+      </aside>
+      <div class="disclosure__content">
+        <p class="index" data-reveal><b>02</b> — Disclosure</p>
+        <h2 class="display" id="disclosure-title" data-reveal>Nothing to announce.</h2>
+        <p class="disclosure__sub" data-reveal>We thought you should know.</p>
+      </div>
+      <span class="disclosure__punctuation" aria-hidden="true">?</span>
+    </section>
+
+    <section class="section manifest" aria-labelledby="manifest-title">
+      <div class="frame">
+        <div class="manifest__head">
+          <h2 class="index" id="manifest-title"><b>03</b> — Manifest</h2>
+          <p class="manifest__hint micro">Move across the load test</p>
+        </div>
+        <div class="slices">
+          <article class="slice slice--form" tabindex="0">
+            <div class="slice__copy">
+              <h3>Form</h3>
+              <p class="micro">Undisclosed</p>
+            </div>
+          </article>
+          <article class="slice slice--weight" tabindex="0">
+            <div class="slice__copy">
+              <h3>Weight</h3>
+              <p class="micro">Under review</p>
+            </div>
+          </article>
+          <article class="slice slice--timing" tabindex="0">
+            <div class="slice__copy">
+              <h3>Timing</h3>
+              <p class="micro">Not provided</p>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
     <section class="section promise" aria-labelledby="promise-title">
       <div class="promise__content">
-        <p class="index" data-reveal>02 — Promise</p>
+        <p class="index" data-reveal>04 — Promise</p>
         <h2 class="display" id="promise-title" data-reveal>We’ll show you when it holds.</h2>
         <div class="promise__dash" aria-hidden="true"></div>
         <p data-reveal>Until then, it stays in the shop.</p>
@@ -562,7 +779,7 @@
 
     <section class="section exit" aria-labelledby="exit-title">
       <div class="exit__top">
-        <p class="index" data-reveal><b>03</b> — Exit</p>
+        <p class="index" data-reveal><b>05</b> — Exit</p>
         <h2 class="display" id="exit-title" data-reveal>Check back later.</h2>
         <p class="exit__sub" data-reveal>No email required.</p>
       </div>
