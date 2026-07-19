@@ -1,4 +1,4 @@
-# The Load Bearing Co.
+# The Load Bearing Company
 
 Public teaser source for [theloadbearingco.com](http://theloadbearingco.com/).
 
