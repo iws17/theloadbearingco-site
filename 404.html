@@ -1,0 +1,72 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Not load bearing — The Load Bearing Co.</title>
+  <meta name="robots" content="noindex" />
+  <meta name="theme-color" content="#121210" />
+  <style>
+    @font-face {
+      font-family: "LBC Display";
+      src: url("/assets/bebas-neue-latin.ttf") format("truetype");
+      font-display: swap;
+    }
+    @font-face {
+      font-family: "LBC Sans";
+      src: url("/assets/montserrat-latin.ttf") format("truetype");
+      font-weight: 100 900;
+      font-display: swap;
+    }
+    :root { --ink:#121210; --oat:#f5f0e6; --bone:#e4d8c5; --rust:#c9633e; }
+    * { box-sizing: border-box; }
+    body {
+      display: grid;
+      min-width: 20rem;
+      min-height: 100dvh;
+      margin: 0;
+      padding: clamp(1.25rem, 4vw, 4rem);
+      color: var(--oat);
+      background:
+        linear-gradient(rgba(228,216,197,.08) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(228,216,197,.08) 1px, transparent 1px),
+        var(--ink);
+      background-size: 4rem 4rem;
+      font-family: "LBC Sans", Arial, sans-serif;
+    }
+    main { align-self: end; width: min(100%, 80rem); }
+    p { margin: 0 0 1.25rem; color: var(--bone); font-size: .72rem; letter-spacing: .18em; text-transform: uppercase; }
+    p b { color: var(--rust); }
+    h1 {
+      max-width: 8ch;
+      margin: 0;
+      font-family: "LBC Display", Impact, sans-serif;
+      font-size: clamp(6rem, 18vw, 17rem);
+      font-weight: 400;
+      line-height: .82;
+      text-transform: uppercase;
+      text-wrap: balance;
+    }
+    a {
+      display: inline-block;
+      margin-top: 2rem;
+      padding-bottom: .6rem;
+      color: var(--oat);
+      border-bottom: 1px solid var(--bone);
+      font-size: .72rem;
+      letter-spacing: .18em;
+      text-decoration: none;
+      text-transform: uppercase;
+    }
+    a:hover { color: var(--rust); border-color: var(--rust); }
+    a:focus-visible { outline: 2px solid var(--rust); outline-offset: .45rem; }
+  </style>
+</head>
+<body>
+  <main>
+    <p><b>404</b> — Not structural</p>
+    <h1>This page was not load bearing.</h1>
+    <a href="/">Return to the foundation ↑</a>
+  </main>
+</body>
+</html>

@@ -1,111 +1,614 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>The Load Bearing Co.</title>
-  <meta name="description" content="The Load Bearing Co." />
-  <meta name="theme-color" content="#0a0a0a" />
-  <meta name="robots" content="index,follow" />
-  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' fill='%230a0a0a'/%3E%3Cpath d='M6 22 V10 H10 V14 H14 V10 H18 V22 H14 V18 H10 V22 Z' fill='%23e8e4dc'/%3E%3C/svg%3E" />
+  <title>The Load Bearing Co. — Under load.</title>
+  <meta name="description" content="The Load Bearing Co. is under load. Nothing to announce." />
+  <meta name="robots" content="index,follow,max-image-preview:large" />
+  <meta name="theme-color" content="#121210" />
+  <link rel="canonical" href="https://theloadbearingco.com/" />
+
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="The Load Bearing Co." />
+  <meta property="og:title" content="The Load Bearing Co. — Under load." />
+  <meta property="og:description" content="Nothing to announce." />
+  <meta property="og:url" content="https://theloadbearingco.com/" />
+  <meta property="og:image" content="https://theloadbearingco.com/assets/og-teaser.webp" />
+  <meta property="og:image:width" content="1672" />
+  <meta property="og:image:height" content="941" />
+  <meta property="og:image:alt" content="An anonymous canvas-wrapped form held under a rust-colored tension strap." />
+
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="The Load Bearing Co. — Under load." />
+  <meta name="twitter:description" content="Nothing to announce." />
+  <meta name="twitter:image" content="https://theloadbearingco.com/assets/og-teaser.webp" />
+
+  <link rel="preload" href="assets/bebas-neue-latin.ttf" as="font" type="font/ttf" crossorigin />
+  <link rel="preload" href="assets/montserrat-latin.ttf" as="font" type="font/ttf" crossorigin />
+  <link rel="preload" href="assets/hero-object.webp" as="image" type="image/webp" />
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' fill='%23121210'/%3E%3Cpath d='M5 23V9h5v5h4V9h5v14h-5v-5h-4v5Z' fill='%23F5F0E6'/%3E%3Crect x='22' y='9' width='4' height='14' fill='%23C9633E'/%3E%3C/svg%3E" />
+
   <style>
-    :root {
-      --bg: #0a0a0a;
-      --fg: #e8e4dc;
-      --muted: #7a7670;
-      --line: #2a2826;
-      --accent: #c4b5a0;
+    @font-face {
+      font-family: "LBC Display";
+      src: url("assets/bebas-neue-latin.ttf") format("truetype");
+      font-style: normal;
+      font-weight: 400;
+      font-display: swap;
     }
-    * { box-sizing: border-box; margin: 0; padding: 0; }
-    html, body { height: 100%; }
+
+    @font-face {
+      font-family: "LBC Sans";
+      src: url("assets/montserrat-latin.ttf") format("truetype");
+      font-style: normal;
+      font-weight: 100 900;
+      font-display: swap;
+    }
+
+    :root {
+      --oat: #f5f0e6;
+      --bone: #e4d8c5;
+      --charcoal: #1e1e1b;
+      --ink: #121210;
+      --rust: #c9633e;
+      --muted: #9d968a;
+      --hairline: rgba(228, 216, 197, .22);
+      --display: "LBC Display", "Arial Narrow", Impact, sans-serif;
+      --sans: "LBC Sans", "Helvetica Neue", Arial, sans-serif;
+      --page-pad: clamp(1.25rem, 3.4vw, 4rem);
+      --max: 112rem;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; }
+
+    html {
+      background: var(--ink);
+      scroll-behavior: smooth;
+    }
+
     body {
-      font-family: "IBM Plex Mono", "SF Mono", ui-monospace, Menlo, Consolas, monospace;
-      background: var(--bg);
-      color: var(--fg);
-      min-height: 100%;
-      display: flex;
-      flex-direction: column;
+      min-width: 20rem;
+      margin: 0;
+      overflow-x: hidden;
+      color: var(--oat);
+      background: var(--ink);
+      font-family: var(--sans);
+      font-weight: 500;
       -webkit-font-smoothing: antialiased;
     }
-    body::before {
+
+    body::after {
       content: "";
       position: fixed;
+      z-index: 90;
       inset: 0;
-      background-image:
-        linear-gradient(rgba(196,181,160,0.035) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(196,181,160,0.035) 1px, transparent 1px);
-      background-size: 48px 48px;
+      opacity: .045;
       pointer-events: none;
-      z-index: 0;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 180 180' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.86' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.7'/%3E%3C/svg%3E");
+      mix-blend-mode: soft-light;
     }
-    main {
+
+    a { color: inherit; }
+    img { display: block; max-width: 100%; }
+
+    .skip-link {
+      position: fixed;
+      z-index: 200;
+      top: .75rem;
+      left: .75rem;
+      padding: .75rem 1rem;
+      color: var(--ink);
+      background: var(--oat);
+      transform: translateY(-180%);
+      transition: transform 180ms ease;
+    }
+
+    .skip-link:focus { transform: none; }
+
+    .progress {
+      position: fixed;
+      z-index: 80;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 2px;
+      background: var(--rust);
+      transform: scaleX(0);
+      transform-origin: 0 50%;
+    }
+
+    .masthead {
+      position: absolute;
+      z-index: 20;
+      inset: 0 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+      padding: 1.3rem var(--page-pad);
+      border-bottom: 1px solid var(--hairline);
+    }
+
+    .wordmark,
+    .index,
+    .micro,
+    .status {
+      font-size: clamp(.62rem, .66vw, .78rem);
+      line-height: 1;
+      letter-spacing: .18em;
+      text-transform: uppercase;
+    }
+
+    .wordmark {
+      font-weight: 800;
+      text-decoration: none;
+    }
+
+    .masthead .status {
+      display: flex;
+      align-items: center;
+      gap: .7rem;
+      color: var(--bone);
+    }
+
+    .masthead .status::before {
+      content: "";
+      width: .5rem;
+      aspect-ratio: 1;
+      background: var(--rust);
+    }
+
+    .section {
       position: relative;
-      z-index: 1;
-      flex: 1;
+      min-height: 100dvh;
+      overflow: hidden;
+      isolation: isolate;
+    }
+
+    .frame {
+      width: min(100%, var(--max));
+      margin-inline: auto;
+      padding-inline: var(--page-pad);
+    }
+
+    .index { color: var(--bone); }
+    .index b { color: var(--rust); font-weight: 800; }
+
+    .display {
+      margin: 0;
+      font-family: var(--display);
+      font-weight: 400;
+      line-height: .82;
+      letter-spacing: -.015em;
+      text-transform: uppercase;
+      text-wrap: balance;
+    }
+
+    .hero {
+      display: grid;
+      align-items: end;
+      background: var(--ink);
+    }
+
+    .hero::before {
+      content: "";
+      position: absolute;
+      z-index: -1;
+      inset: 0;
+      opacity: .28;
+      background-image:
+        linear-gradient(var(--hairline) 1px, transparent 1px),
+        linear-gradient(90deg, var(--hairline) 1px, transparent 1px);
+      background-size: 5vw 5vw;
+      mask-image: linear-gradient(to right, black, transparent 44%);
+    }
+
+    .hero__media {
+      position: absolute;
+      z-index: -2;
+      inset: 0 0 0 25%;
+      overflow: hidden;
+      clip-path: inset(3.35rem 0 0);
+    }
+
+    .hero__media::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background:
+        linear-gradient(90deg, var(--ink) 0%, var(--ink) 40%, rgba(18,18,16,.72) 49%, transparent 62%),
+        linear-gradient(0deg, rgba(18,18,16,.5), transparent 48%);
+    }
+
+    .hero__media img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center;
+      filter: contrast(1.02) brightness(.74) saturate(.78);
+      transform: scale(1.025);
+    }
+
+    .hero__content {
+      width: min(100%, var(--max));
+      margin-inline: auto;
+      padding: 9rem var(--page-pad) clamp(3rem, 7vw, 6.4rem);
+    }
+
+    .hero .display {
+      max-width: 8ch;
+      margin-top: 1.8rem;
+      font-size: clamp(6.5rem, 15vw, 17rem);
+    }
+
+    .hero__sub {
+      margin: clamp(1.25rem, 2vw, 2rem) 0 0;
+      color: var(--bone);
+      font-size: clamp(.95rem, 1.1vw, 1.25rem);
+      letter-spacing: .015em;
+    }
+
+    .hero__status {
+      display: flex;
+      align-items: center;
+      gap: .8rem;
+      margin-top: 2rem;
+      color: var(--rust);
+    }
+
+    .hero__status::before {
+      content: "";
+      width: .55rem;
+      aspect-ratio: 1;
+      background: currentColor;
+    }
+
+    .hero__scroll {
+      position: absolute;
+      right: var(--page-pad);
+      bottom: 2rem;
+      display: flex;
+      align-items: center;
+      gap: .7rem;
+      color: var(--bone);
+      text-decoration: none;
+    }
+
+    .hero__scroll span:first-child { transition: transform 180ms ease; }
+    .hero__scroll:hover span:first-child { transform: translateY(.35rem); }
+
+    .hero__scroll:focus-visible,
+    .return-link:focus-visible,
+    .wordmark:focus-visible {
+      outline: 2px solid var(--rust);
+      outline-offset: .45rem;
+    }
+
+    .standard {
+      display: grid;
+      grid-template-columns: minmax(0, 1.35fr) minmax(18rem, .65fr);
+      background: var(--charcoal);
+      border-top: 1px solid var(--hairline);
+    }
+
+    .standard__media {
+      position: relative;
+      min-height: 100dvh;
+      overflow: hidden;
+      border-right: 1px solid var(--hairline);
+    }
+
+    .standard__media img {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center;
+      filter: contrast(1.05) brightness(.78) saturate(.65);
+    }
+
+    .standard__media::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(0deg, rgba(18,18,16,.3), transparent 50%);
+    }
+
+    .standard__copy {
       display: flex;
       flex-direction: column;
       justify-content: center;
-      padding: clamp(1.5rem, 5vw, 3rem);
-      max-width: 36rem;
-      margin: 0 auto;
-      width: 100%;
+      padding: clamp(3rem, 7vw, 8rem) var(--page-pad);
     }
-    .mark {
-      font-size: 0.68rem;
-      letter-spacing: 0.32em;
-      text-transform: uppercase;
-      color: var(--muted);
-      margin-bottom: 1.5rem;
+
+    .standard .display {
+      max-width: 5ch;
+      margin-top: 2.1rem;
+      font-size: clamp(5.8rem, 9.4vw, 11rem);
     }
-    h1 {
-      font-size: clamp(1.85rem, 5.5vw, 2.5rem);
-      font-weight: 500;
-      letter-spacing: -0.03em;
-      line-height: 1.1;
-      margin-bottom: 1.5rem;
-    }
-    .rule {
-      width: 2.5rem;
-      height: 1px;
-      background: var(--line);
-      margin: 0 0 1.5rem;
-      border: 0;
-    }
-    p {
-      font-size: 0.92rem;
+
+    .standard__copy p {
+      max-width: 22rem;
+      margin: 2rem 0 0;
+      color: var(--bone);
       line-height: 1.7;
+    }
+
+    .standard__test {
+      margin-top: auto;
+      padding-top: 3rem;
+      border-top: 1px solid var(--hairline);
       color: var(--muted);
-      max-width: 28rem;
     }
-    .status {
-      margin-top: 2rem;
-      font-size: 0.72rem;
-      letter-spacing: 0.18em;
-      text-transform: uppercase;
-      color: var(--accent);
+
+    .promise {
+      display: grid;
+      align-items: center;
+      min-height: 82dvh;
+      color: var(--ink);
+      background: var(--oat);
     }
-    footer {
+
+    .promise::before {
+      content: "";
+      position: absolute;
+      top: -12%;
+      left: -8%;
+      width: 118%;
+      height: 28%;
+      background:
+        linear-gradient(90deg, transparent 0 11%, rgba(18,18,16,.18) 11% 16%, transparent 16% 35%, rgba(18,18,16,.16) 35% 41%, transparent 41% 63%, rgba(18,18,16,.14) 63% 70%, transparent 70%);
+      filter: blur(10px);
+      transform: skewY(-2deg);
+    }
+
+    .promise__content {
       position: relative;
       z-index: 1;
-      padding: 1.25rem clamp(1.5rem, 5vw, 3rem) 1.75rem;
-      border-top: 1px solid var(--line);
-      font-size: 0.68rem;
-      letter-spacing: 0.08em;
+      width: min(100%, var(--max));
+      margin-inline: auto;
+      padding: clamp(7rem, 10vw, 11rem) var(--page-pad) clamp(5rem, 8vw, 8rem);
+      text-align: center;
+    }
+
+    .promise .index { color: var(--ink); }
+
+    .promise .display {
+      max-width: 12ch;
+      margin: 2.2rem auto 0;
+      font-size: clamp(4.7rem, 10vw, 12rem);
+      line-height: .86;
+    }
+
+    .promise__dash {
+      width: 2rem;
+      height: .45rem;
+      margin: 2rem auto;
+      background: var(--rust);
+    }
+
+    .promise p { margin: 0; }
+
+    .promise__stamp {
+      display: inline-block;
+      margin-top: 4rem;
+      padding-block: .5rem;
+      border-block: 1px solid currentColor;
+    }
+
+    .exit {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      min-height: 100dvh;
+      padding: clamp(5.5rem, 8vw, 8rem) var(--page-pad) 2rem;
+      background:
+        radial-gradient(circle at 78% 55%, rgba(245,240,230,.13), transparent 27%),
+        var(--ink);
+    }
+
+    .exit::before {
+      content: "";
+      position: absolute;
+      z-index: -1;
+      top: 18%;
+      right: -8%;
+      width: 42%;
+      height: 48%;
+      background: var(--charcoal);
+      box-shadow: -24vw 19vw 6vw rgba(0,0,0,.74);
+      transform: rotate(-4deg);
+    }
+
+    .exit__top {
+      width: min(100%, var(--max));
+      margin-inline: auto;
+    }
+
+    .exit .display {
+      max-width: 10ch;
+      margin-top: 2.2rem;
+      font-size: clamp(6rem, 14vw, 16rem);
+    }
+
+    .exit__sub { margin: 2rem 0 0; color: var(--bone); }
+
+    .exit__action {
+      display: flex;
+      justify-content: flex-end;
+      width: min(100%, var(--max));
+      margin: clamp(5rem, 10vw, 10rem) auto 2rem;
+    }
+
+    .return-link {
+      padding-bottom: .65rem;
+      border-bottom: 1px solid var(--bone);
+      text-decoration: none;
+      transition: color 180ms ease, border-color 180ms ease;
+    }
+
+    .return-link:hover { color: var(--rust); border-color: var(--rust); }
+
+    .exit__footer {
+      display: grid;
+      grid-template-columns: 1fr auto 1fr;
+      align-items: end;
+      width: min(100%, var(--max));
+      margin-inline: auto;
+      padding-top: 1.5rem;
+      border-top: 1px solid var(--hairline);
       color: var(--muted);
-      text-transform: uppercase;
+    }
+
+    .exit__footer .wordmark { color: var(--oat); }
+    .exit__footer .domain { justify-self: end; }
+
+    .motion-ready [data-reveal] {
+      opacity: 0;
+      transform: translateY(1.6rem);
+      transition: opacity 760ms ease, transform 760ms cubic-bezier(.2,.75,.2,1);
+    }
+
+    .motion-ready [data-reveal].is-visible {
+      opacity: 1;
+      transform: none;
+    }
+
+    @media (max-width: 800px) {
+      .masthead .status { font-size: .56rem; letter-spacing: .12em; }
+
+      .hero__media { inset: 0; }
+      .hero__media::after {
+        background: linear-gradient(0deg, var(--ink) 0%, rgba(18,18,16,.72) 48%, rgba(18,18,16,.18));
+      }
+      .hero__media img { opacity: .72; transform: scale(1.08); }
+      .hero__content { padding-top: 8rem; }
+      .hero .display { font-size: clamp(6rem, 29vw, 10rem); }
+      .hero__scroll { display: none; }
+
+      .standard { grid-template-columns: 1fr; }
+      .standard__media {
+        min-height: 58dvh;
+        border-right: 0;
+        border-bottom: 1px solid var(--hairline);
+      }
+      .standard__copy { min-height: 68dvh; }
+      .standard .display { font-size: clamp(5.5rem, 25vw, 9rem); }
+
+      .promise { min-height: 82dvh; }
+      .promise .display { font-size: clamp(4.4rem, 20vw, 8rem); }
+
+      .exit .display { font-size: clamp(5.8rem, 26vw, 10rem); }
+      .exit__footer { grid-template-columns: 1fr auto; gap: 1.5rem; }
+      .exit__footer .status { display: none; }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      html { scroll-behavior: auto; }
+      *, *::before, *::after {
+        animation-duration: .01ms !important;
+        transition-duration: .01ms !important;
+      }
+      .motion-ready [data-reveal] { opacity: 1; transform: none; }
     }
   </style>
 </head>
 <body>
-  <main>
-    <p class="mark">Limited structural capacity</p>
-    <h1>The Load Bearing Co.</h1>
-    <hr class="rule" />
-    <p>Under construction. Check back.</p>
-    <p class="status">Foundation curing</p>
+  <a class="skip-link" href="#main">Skip to content</a>
+  <div class="progress" aria-hidden="true"></div>
+
+  <header class="masthead" aria-label="Primary">
+    <a class="wordmark" href="#top">The Load Bearing Co.</a>
+    <span class="status">Foundation curing</span>
+  </header>
+
+  <main id="main">
+    <section class="section hero" id="top" aria-labelledby="hero-title">
+      <div class="hero__media" aria-hidden="true">
+        <img src="assets/hero-object.webp" alt="" width="912" height="851" />
+      </div>
+      <div class="hero__content">
+        <p class="index" data-reveal><b>00</b> — Holding</p>
+        <h1 class="display" id="hero-title" data-reveal>Under load.</h1>
+        <p class="hero__sub" data-reveal>Nothing to announce.</p>
+        <p class="hero__status status" data-reveal>Foundation curing</p>
+      </div>
+      <a class="hero__scroll micro" href="#standard"><span>↓</span><span>Inspect</span></a>
+    </section>
+
+    <section class="section standard" id="standard" aria-labelledby="standard-title">
+      <div class="standard__media" aria-hidden="true">
+        <img src="assets/standard-material.webp" alt="" width="930" height="992" loading="lazy" />
+      </div>
+      <div class="standard__copy">
+        <p class="index" data-reveal><b>01</b> — Standard</p>
+        <h2 class="display" id="standard-title" data-reveal>Built to hold.</h2>
+        <p data-reveal>The rest stays covered.</p>
+        <p class="standard__test micro" data-reveal>Load test / in progress</p>
+      </div>
+    </section>
+
+    <section class="section promise" aria-labelledby="promise-title">
+      <div class="promise__content">
+        <p class="index" data-reveal>02 — Promise</p>
+        <h2 class="display" id="promise-title" data-reveal>We’ll show you when it holds.</h2>
+        <div class="promise__dash" aria-hidden="true"></div>
+        <p data-reveal>Until then, it stays in the shop.</p>
+        <p class="promise__stamp micro" data-reveal>The Load Bearing Co.</p>
+      </div>
+    </section>
+
+    <section class="section exit" aria-labelledby="exit-title">
+      <div class="exit__top">
+        <p class="index" data-reveal><b>03</b> — Exit</p>
+        <h2 class="display" id="exit-title" data-reveal>Check back later.</h2>
+        <p class="exit__sub" data-reveal>No email required.</p>
+      </div>
+      <div class="exit__action">
+        <a class="return-link micro" href="#top">Return to the top ↑</a>
+      </div>
+      <footer class="exit__footer">
+        <a class="wordmark" href="#top">The Load Bearing Co.</a>
+        <span class="status">Foundation curing</span>
+        <span class="domain micro">theloadbearingco.com</span>
+      </footer>
+    </section>
   </main>
-  <footer>
-    <span>theloadbearingco.com</span>
-  </footer>
+
+  <script>
+    document.documentElement.classList.add("motion-ready");
+
+    const progress = document.querySelector(".progress");
+    const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+    function updateProgress() {
+      const max = document.documentElement.scrollHeight - window.innerHeight;
+      progress.style.transform = `scaleX(${max > 0 ? window.scrollY / max : 0})`;
+    }
+
+    if (!reduceMotion && "IntersectionObserver" in window) {
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("is-visible");
+            observer.unobserve(entry.target);
+          }
+        });
+      }, { threshold: .18 });
+
+      document.querySelectorAll("[data-reveal]").forEach((element, index) => {
+        element.style.transitionDelay = `${Math.min(index % 4, 3) * 70}ms`;
+        observer.observe(element);
+      });
+    } else {
+      document.querySelectorAll("[data-reveal]").forEach((element) => element.classList.add("is-visible"));
+    }
+
+    updateProgress();
+    window.addEventListener("scroll", updateProgress, { passive: true });
+    window.addEventListener("resize", updateProgress);
+  </script>
 </body>
 </html>
